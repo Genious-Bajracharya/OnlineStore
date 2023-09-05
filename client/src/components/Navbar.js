@@ -14,40 +14,21 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a className="navbar-brand" href="/">
-        OnlineStore
-      </a>
-
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
-          <li className="nav-item active">
-            <a className="nav-link" href="/">
-              Home <span className="sr-only"></span>
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              Categories
-            </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">
-              Login
-            </a>
-          </li>
-        </ul>
-      </div>
-      <form className="form-inline" onSubmit={handleSearch}>
-        <input
-          className="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </form>
-    </nav>
+    <div>
+      <div className="nav-sale">Special offer for limited time</div>
+      <nav className="navbar">
+        <div className="brand">
+          <h1>Fake Store</h1>
+        </div>
+        <div className="navigations">
+          <a href="/">Home</a>
+          <a>Categories</a>
+          <a>Contact</a>
+        </div>
+        <form className="search">
+          <input type="text" placeholder="search" onSubmit={handleSearch} />
+        </form>
+      </nav>
+    </div>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Navbar from "./Navbar";
 
 export default function Home() {
   const { id } = useParams();
@@ -13,7 +12,6 @@ export default function Home() {
   }, [id]);
   return (
     <div>
-      <Navbar />
       <div>
         <section className="py-5">
           <div className="container px-4 px-lg-5 my-5">
