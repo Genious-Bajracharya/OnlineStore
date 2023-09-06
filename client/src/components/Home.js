@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [product1, setProduct1] = useState([]);
   const [product2, setProduct2] = useState([]);
   const [product3, setProduct3] = useState([]);
+  const navigate = useNavigate();
+  const ref = useRef(null);
   // console.log(products[1].price);
 
   useEffect(() => {
@@ -39,7 +42,7 @@ export default function Home() {
 
   useEffect(() => {
     try {
-      fetch("https://fakestoreapi.com/products/18")
+      fetch("https://fakestoreapi.com/products/17")
         .then((res) => res.json())
         .then((data) => setProduct2(data));
     } catch (error) {
@@ -47,11 +50,15 @@ export default function Home() {
     }
   }, []);
 
+  const scroll = () => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="home">
       <div className="hero-section">
         <img
-          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+          src="https://img.freepik.com/free-photo/beautiful-second-hand-market_23-2149353670.jpg?w=1060&t=st=1694020688~exp=1694021288~hmac=ddfa55337fcdbc69285b120417777daad627fee8511308efd1ff13a927db0ec5"
           alt="Hero Image"
           className="hero-image"
         />
@@ -62,7 +69,9 @@ export default function Home() {
             Discover amazing content and services.
           </p>
           <p className="hero-description">Also everything is fake!</p>
-          <button className="hero-button">Shop Now</button>
+          <button onClick={scroll} className="hero-button">
+            Shop Now
+          </button>
         </div>
       </div>
       <div className="guff">
@@ -104,11 +113,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="collection">
+      <div ref={ref} className="collection">
         <div className="collection-mens">
           <a href={`/category/${`men's clothing`}`}>
             <img
-              src="https://media.istockphoto.com/id/831659416/photo/luxury-clothing-shop-for-men.jpg?s=612x612&w=0&k=20&c=ojRX38zxl2WyAfZBV4NlrBAQvjlLnvWekTuF2ZLzNIA="
+              src="https://img.freepik.com/free-photo/overhead-view-womans-casual-outfits_93675-134231.jpg?w=1060&t=st=1694014800~exp=1694015400~hmac=115ca3042e9d1aba93ddf953502214d4981678b7e3746215eef3e584033fcf31"
               className="collection-mens-image"
               alt=""
             />
@@ -123,7 +132,7 @@ export default function Home() {
         <div className="collection-womens">
           <a href={`/category/${`women's clothing`}`}>
             <img
-              src="https://media.istockphoto.com/id/1152092333/photo/boutique-clothing-store.jpg?s=612x612&w=0&k=20&c=h2VO3aVvXrl-t7sTAkXMhMcnOGyGxGg3PI2BYi_QK1Q="
+              src="https://img.freepik.com/free-photo/overhead-view-womans-casual-outfits_93675-134143.jpg?w=1060&t=st=1694014753~exp=1694015353~hmac=a4c74826d227f28666d34dcf6537b8f86676e55dee9588ca5f5824aa29352d89"
               className="collection-womens-image"
               alt=""
             />
@@ -142,7 +151,12 @@ export default function Home() {
       <div className="hot-container">
         {products.slice(15, 18).map((item) => (
           <div className="hot-product-card" key={item.id}>
-            <img src={item.image} className="hot-image" alt="" />
+            <img
+              onClick={() => navigate(`/product/${item.id}`)}
+              src={item.image}
+              className="hot-image"
+              alt=""
+            />
             <div className="hot-info">
               <span>{item.category}</span>
               <br></br>
