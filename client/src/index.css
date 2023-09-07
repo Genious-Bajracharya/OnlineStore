@@ -350,6 +350,11 @@ nav .search{
 
 .hot-info{
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* max-width: 500px;   */
+  
   
 }
 
@@ -367,6 +372,13 @@ nav .search{
   color: white;
   transition: ease-in 1s ;
   transform-origin: right;
+}
+
+.product-card-title{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
 }
 
 /* category */
@@ -400,54 +412,57 @@ nav .search{
 
 /* product descrption */
 
-.product-container .container {
-  position: relative;
-  margin: auto;
+.product-container{
+  margin: 3rem 1rem 1rem 1rem;
+  display: flex;
+  width: 100%;
+  height: 40rem;
+}
+
+.product-image-container{
+  width: 50%;
+  margin: 1rem;
   overflow: hidden;
+}
+
+.product-image{
+  object-fit: contain;
   width: 100%;
   height: 100%;
-  background: white;
-  box-shadow: 5px 5px 15px rgba(rose, .5);
-  border-radius: 10px;
 }
 
-p {
-  font-size: 0.6em;
-  color: rgb(2, 0, 3);
-  letter-spacing: 1px;
-}
-
-.product h1 {
-  font-size: 3rem;
-  color: dark;
-}
-
-.product h2 {
-  color: rgb(0, 0, 0);
-}
-
-.product-container img {
-  max-width: 50%;
-  margin-top: 47px;
+.product-image:hover{
+  transform: scale(1.1);
 }
 
 
-.product {
+
+.product{
+  position: relative;
+  width:50%;
+  margin: 1rem;
+}
+
+.product-price{
+  font-size:xx-large;
+}
+
+.product-desc{
+  font-size: medium;
+}
+
+.add{
   position: absolute;
-  width: 40%;
-  height: 100%;
-  top: 10%;
-  left: 60%;
+  bottom:0;
+  margin: 1rem;
+  background: transparent;
+  border-color: #000;
+  width: 8rem;
+  height: 2.5rem;
+  border-radius: 12px;
 }
 
-.product .add{
-    width: 8rem;
-    height: 3rem;
-    color: azure;
-    background-color: black;
-    border-radius: 1rem;
-    margin-top: 10rem;
-}
+
 
 
 
