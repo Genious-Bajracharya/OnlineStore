@@ -160,7 +160,7 @@ export default function Home() {
             <div className="hot-info">
               <span>{item.category}</span>
               <br></br>
-              <h4 className="product-card-title">{item.title}</h4>
+              <h4>{item.title}</h4>
 
               <button className="hot-button">Buy now</button>
             </div>

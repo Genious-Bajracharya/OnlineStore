@@ -21,42 +21,45 @@ export default function Search() {
 
   return (
     <div>
-      <Navbar />
       <div className="container">
-        <h2 className="fw-bolder my-4">Search Results for {query}</h2>
-        <div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-4 justify-content-center">
-          {filteredProducts.map((product) => (
-            <Link to={`/product/${product.id}`} className="col mb-5">
-              <div key={product.id} className="col mb-5">
-                <div className="card h-100">
-                  <img
-                    className="card-img-top img-fluid"
-                    src={product.image}
-                    alt={product.title}
-                  />
+        <h2 className="fw-bolder my-4">Search Results for {query}....</h2>
+        {filteredProducts.length === 0 ? (
+          <h1>The Fake Product that you seacrhed dosent exist </h1>
+        ) : (
+          <div className="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-4 justify-content-center">
+            {filteredProducts.map((product) => (
+              <Link to={`/product/${product.id}`} className="col mb-5">
+                <div key={product.id} className="col mb-5">
+                  <div className="card h-100">
+                    <img
+                      className="card-img-top img-fluid"
+                      src={product.image}
+                      alt={product.title}
+                    />
 
-                  <div className="card-body p-4">
-                    <div className="text-center">
-                      <h5 className="fw-bolder">{product.title}</h5>$
-                      {product.price}
+                    <div className="card-body p-4">
+                      <div className="text-center">
+                        <h5 className="fw-bolder">{product.title}</h5>$
+                        {product.price}
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div className="text-center">
-                      <Link
-                        to={`/product/${product.id}`}
-                        className="btn btn-outline-dark mt-auto"
-                      >
-                        Open
-                      </Link>
+                    <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                      <div className="text-center">
+                        <Link
+                          to={`/product/${product.id}`}
+                          className="btn btn-outline-dark mt-auto"
+                        >
+                          Open
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

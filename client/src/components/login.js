@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 // import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Product from "./Product";
 
 export default function Login() {
   const [username, setEmail] = useState("");
@@ -13,19 +14,29 @@ export default function Login() {
 
   const Auth = (e) => {
     e.preventDefault();
-    fetch("https://fakestoreapi.com/auth/login", {
-      method: "POST",
-      body: JSON.stringify({
-        username: "mor_2314",
-        password: "83r5^_",
-      }),
-    })
-      .then((res) => res.json())
-      .then((json) => console.log(json));
+    fetch(
+      "https://fakestoreapi.com/auth/login",
+      {
+        username: username,
+        password: password,
+      },
+      {
+        withCredentials: true,
+      }
+    ).then((response) => {
+      if (response.data) {
+        setLoginStatus(response.data);
+      } else {
+        // setLoginStatus(response.data[0].email);
+        localStorage.setItem("username", username);
+        localStorage.setItem("isLoggedIn", true);
+        navigate("/");
+      }
+    });
   };
+
   return (
     <div>
-      <Navbar />
       <input
         type="text"
         id="username"

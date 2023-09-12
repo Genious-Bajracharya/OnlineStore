@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "tailwindcss": "^3.3.3"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
   }
 }

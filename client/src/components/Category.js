@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import LoadingSpinner from "./loadin";
 
 export default function Category() {
   const [category, setCategory] = useState([]);
   const { id } = useParams();
   const [banner, setBanner] = useState("");
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     try {
+      setIsLoading(true);
       fetch(`https://fakestoreapi.com/products/category/${id}`)
         .then((res) => res.json())
         .then((data) => setCategory(data));
+      setIsLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -45,24 +49,27 @@ export default function Category() {
           <h1 className="title">{id}</h1>
         </div>
       </div>
-
-      <div className="hot-container">
-        {category.map((item) => (
-          <div
-            onClick={() => navigate(`/product/${item.id}`)}
-            className="hot-product-card"
-            key={item.id}
-          >
-            <img src={item.image} className="hot-image" alt="" />
-            <div className="hot-info">
-              <span>{item.category}</span>
-              <br></br>
-              <h4>{item.title}</h4>
-              <button className="hot-button">Buy now</button>
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <div className="hot-container">
+          {category.map((item) => (
+            <div
+              onClick={() => navigate(`/product/${item.id}`)}
+              className="hot-product-card"
+              key={item.id}
+            >
+              <img src={item.image} className="hot-image" alt="" />
+              <div className="hot-info">
+                <span>{item.category}</span>
+                <br></br>
+                <h4>{item.title}</h4>
+                <button className="hot-button">Buy now</button>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

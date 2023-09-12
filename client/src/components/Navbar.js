@@ -5,17 +5,20 @@ import { useNavigate } from "react-router-dom";
 export default function Navbar() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
+  const [query, setQuery] = useState("");
 
   const handleSearch = (event) => {
     event.preventDefault();
     // const searchTerm = event.target.elements.searchTerm.value;
-
     navigate(`/search/${searchTerm}`);
   };
 
   return (
     <div>
-      <div className="nav-sale">Special offer for limited time</div>
+      <div className="nav-sale">
+        Special offer for limited time. Free delivery on every purchase over 1
+        bitcoin
+      </div>
       <nav className="navbar">
         <div className="navigations">
           <button onClick={() => navigate(`/`)} className="navigate-button">
@@ -35,8 +38,12 @@ export default function Navbar() {
         <div onClick={() => navigate(`/`)} className="brand">
           <h1>Fake Store</h1>
         </div>
-        <form className="search">
-          <input type="text" placeholder="search" onSubmit={handleSearch} />
+        <form className="search" onSubmit={handleSearch}>
+          <input
+            type="text"
+            placeholder="search"
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </form>
       </nav>
     </div>

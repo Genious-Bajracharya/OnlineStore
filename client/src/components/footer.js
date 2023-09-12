@@ -44,7 +44,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="right box">
-          <div className="topic">Subscribe us</div>
+          <div className="topic">Contact us</div>
           <form action="#">
             <input type="text" placeholder="Enter email address" />
             <input type="submit" name="" value="Send" />

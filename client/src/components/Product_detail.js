@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Product from "./Product";
+import { Alert } from "bootstrap";
 
 export default function Product_detail() {
   const { id } = useParams();
@@ -11,6 +12,10 @@ export default function Product_detail() {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [id]);
+
+  function handleAdd() {
+    alert("Added successfully");
+  }
   return (
     <div className="product-container">
       <div className="product-image-container">
@@ -29,7 +34,9 @@ export default function Product_detail() {
         <h2 className="product-price">${products.price}</h2>
         <p className="product-desc">{products.description}</p>
         <div className="product-button-div">
-          <button className="add">Add to Cart</button>
+          <button onClick={handleAdd} className="add">
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
