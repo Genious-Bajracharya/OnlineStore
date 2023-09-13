@@ -95,12 +95,12 @@ nav .search{
 .hero-section {
   position: relative;
   text-align: center;
-  padding: 20px 0;
+  padding: 20px 5px 0px 5px;
 }
 
 .hero-image {
-  width:92rem;
-  height: 50rem;
+  width:100%;
+  height: auto;
   filter: brightness(50%);
 }
 
@@ -159,6 +159,15 @@ nav .search{
   background-color: #0b0000;
   margin: 5px;
   
+}
+
+@media screen and (max-width: 500px){
+  .guff-line{
+    height: 1px;
+    width: 120px;
+    background-color: #0b0000;
+  margin: 10px;
+  }
 }
 
 /* seller thing */
@@ -487,7 +496,7 @@ nav .search{
 }
 
 /* loading */
-@keyframes spinner {
+/* @keyframes spinner {
   0% {
     transform: rotate(0deg);
   }
@@ -498,8 +507,8 @@ nav .search{
 .loading-spinner {
   width: 50px;
   height: 50px;
-  border: 10px solid #f3f3f3; /* Light grey */
-  border-top: 10px solid #383636; /* Blue */
+  border: 10px solid #f3f3f3; 
+  border-top: 10px solid #383636; 
   border-radius: 50%;
   animation: spinner 1.5s linear infinite;
 }
@@ -509,7 +518,7 @@ nav .search{
   justify-content: center;
   align-items: center;
   height: 350px;
-}
+} */
 
 /* Footer */
 footer{
@@ -640,7 +649,12 @@ footer a:hover{
   }
 }
 
-
+@media only screen and (max-width: 620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width: 100%;
+  }
+}
 
 
 
