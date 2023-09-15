@@ -8,7 +8,6 @@ export default function Home() {
   const [product3, setProduct3] = useState([]);
   const navigate = useNavigate();
   const ref = useRef(null);
-  // console.log(products[1].price);
 
   useEffect(() => {
     try {

@@ -48,9 +48,10 @@ nav h1{
 
 }
 
-.navigate-button:hover{
+.navigate-button:hover, .search-logo:hover, .login:hover, .cart:hover{
   transform: translateY(-5px);
 }
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -63,7 +64,7 @@ nav h1{
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 2;
 }
 
 .dropdown-content a {
@@ -83,17 +84,53 @@ nav h1{
 .dropdown:hover .dropbtn {
   background-color: #818981;
 }
-
-
-nav .search{
-  margin-right: 1rem;
+.icon-container{
+  padding: 1rem;
+  justify-content: center;
+  align-content: center;
+  max-height: 50px;
+  
 }
 
-.search input{
+.search-logo{
+  width:30px;
+  height: 25px;
+ transform: translateY(-15px);
+ cursor: pointer;
+}
+
+.login{
+  width:32px;
+  height: 25px;
+  margin: 1rem;
+  transform: translateY(-15px);
+  cursor: pointer;
+}
+.cart{
+  width:32px;
+  height: 25px;
+  transform: translateY(-15px);
+  cursor: pointer;
+}
+
+
+.search{
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  width: 100%;
+  
+}
+
+
+
+
+
+/* .search input{
   padding: 0.3rem;
   width: 15rem;
   border-radius: 10px;
-}
+} */
 
 @media (max-width: 600px) {
   nav {
@@ -574,6 +611,18 @@ nav .search{
   border-radius: 12px;
 }
 
+.like{
+  height: 30px;
+  width: 50px;
+  height: 40px;
+  border-color: #000;
+  border-style:solid;
+  border-width: 2px;
+  border-radius: 12px;
+  margin: 1rem;
+  transform: translateY(-2px);
+}
+
 .desc {
   text-transform: none;
   letter-spacing: 0;
@@ -585,9 +634,18 @@ nav .search{
   text-align: justify;
 }
 
-.add:hover,.quantity:hover{
+
+
+.add:hover,.quantity:hover {
   box-shadow: 0px 10px 10px rgb(157, 160, 161);
 }
+.like:hover{
+  box-shadow: 0px 10px 10px rgb(157, 160, 161);
+  fill: red;
+}
+
+
+
 
 
 @media (max-width: 750px) {
@@ -616,7 +674,7 @@ nav .search{
     font-size: small;
     text-wrap: wrap;
   }
-  .add,.quantity{
+  .add,.quantity,.like{
    
    margin: 5px;
   }

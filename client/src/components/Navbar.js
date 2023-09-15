@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-// import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
+import { CgProfile, CgSearch } from "react-icons/cg";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-  const [query, setQuery] = useState("");
+  const [search, showSearch] = useState(false);
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -13,8 +14,16 @@ export default function Navbar() {
     navigate(`/search/${searchTerm}`);
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log(search);
+    {
+      search ? showSearch(false) : showSearch(true);
+    }
+  };
+
   return (
-    <div>
+    <>
       <div className="nav-sale">
         <span className="moving-text">
           Special offer for limited time. Free delivery on every purchase over 1
@@ -48,14 +57,24 @@ export default function Navbar() {
         <div onClick={() => navigate(`/`)} className="brand">
           <h1>Fake Store</h1>
         </div>
-        <form className="search" onSubmit={handleSearch}>
+        <div className="icon-container">
+          <CgSearch onClick={handleClick} className="search-logo" />
+          <CgProfile className="login" />
+          <AiOutlineShoppingCart className="cart" />
+        </div>
+      </nav>
+      {search ? (
+        <form onSubmit={handleSearch}>
           <input
-            type="text"
-            placeholder="search"
+            className="search"
+            placeholder="Search..."
             onChange={(e) => setSearchTerm(e.target.value)}
+            type="text"
           />
         </form>
-      </nav>
-    </div>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }

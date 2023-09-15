@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import Product from "./Product";
-import { Alert } from "bootstrap";
+import { useParams } from "react-router-dom";
+import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 
 export default function Product_detail() {
   const { id } = useParams();
@@ -17,6 +16,9 @@ export default function Product_detail() {
   function handleAdd() {
     alert(`Added ${quantity} to cart successfully`);
   }
+  function handleLike() {
+    alert(`Successfully added to your Wishlist`);
+  }
   return (
     <div className="product-container">
       <div className="product-image-container">
@@ -30,7 +32,7 @@ export default function Product_detail() {
       <div className="product">
         <h1 className="product-tile">{products.title}</h1>
         <span className="text-decoration-line-through">
-          ${products.price + 50.0}
+          ${Math.round(products.price + 50.0, 2)}
         </span>
         <h2 className="product-price">${products.price}</h2>
         <p className="product-desc">{products.description}</p>
@@ -44,6 +46,7 @@ export default function Product_detail() {
             placeholder={quantity}
             onChange={(e) => setQuantity(e.target.value)}
           />
+          <AiOutlineHeart onClick={handleLike} className="like" />
         </div>
       </div>
     </div>

@@ -1,8 +1,12 @@
 import React from "react";
+import { useRef } from "react";
 
 export default function Footer() {
+  const con = useRef(null);
+  const bake = 1;
+
   return (
-    <footer>
+    <footer ref={con}>
       <div className="content">
         <div className="left box">
           <div className="upper">
