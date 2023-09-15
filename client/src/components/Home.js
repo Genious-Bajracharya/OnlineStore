@@ -114,35 +114,37 @@ export default function Home() {
         </div>
       </div>
       <div ref={ref} className="collection">
-        <div className="collection-mens">
-          <a href={`/category/${`men's clothing`}`}>
-            <img
-              src="https://img.freepik.com/free-photo/overhead-view-womans-casual-outfits_93675-134231.jpg?w=1060&t=st=1694014800~exp=1694015400~hmac=115ca3042e9d1aba93ddf953502214d4981678b7e3746215eef3e584033fcf31"
-              className="collection-mens-image"
-              alt=""
-            />
-            <div className="collection-info">
-              <h1>Mens Collection</h1>
-              <span>Top quality thing innt</span>
-              <br></br>
-              <button className="collection-button">Buy Now</button>
-            </div>
-          </a>
+        <div
+          className="collection-mens"
+          onClick={() => navigate(`/category/${`men's clothing`}`)}
+        >
+          <img
+            src="https://img.freepik.com/free-photo/overhead-view-womans-casual-outfits_93675-134231.jpg?w=1060&t=st=1694014800~exp=1694015400~hmac=115ca3042e9d1aba93ddf953502214d4981678b7e3746215eef3e584033fcf31"
+            className="collection-mens-image"
+            alt=""
+          />
+          <div className="collection-info">
+            <h1>Mens Collection</h1>
+            <span>Top quality thing innt</span>
+            <br></br>
+            <button className="collection-button">Buy Now</button>
+          </div>
         </div>
-        <div className="collection-womens">
-          <a href={`/category/${`women's clothing`}`}>
-            <img
-              src="https://img.freepik.com/free-photo/overhead-view-womans-casual-outfits_93675-134143.jpg?w=1060&t=st=1694014753~exp=1694015353~hmac=a4c74826d227f28666d34dcf6537b8f86676e55dee9588ca5f5824aa29352d89"
-              className="collection-womens-image"
-              alt=""
-            />
-            <div className="collection-info">
-              <h1>Womens Collection</h1>
-              <span>Shine bright ladies sewy</span>
-              <br></br>
-              <button className="collection-button">Buy Now</button>
-            </div>
-          </a>
+        <div
+          className="collection-womens"
+          onClick={() => navigate(`/category/${`women's clothing`}`)}
+        >
+          <img
+            src="https://img.freepik.com/free-photo/overhead-view-womans-casual-outfits_93675-134143.jpg?w=1060&t=st=1694014753~exp=1694015353~hmac=a4c74826d227f28666d34dcf6537b8f86676e55dee9588ca5f5824aa29352d89"
+            className="collection-womens-image"
+            alt=""
+          />
+          <div className="collection-info">
+            <h1>Womens Collection</h1>
+            <span>Shine bright ladies sewy</span>
+            <br></br>
+            <button className="collection-button">Buy Now</button>
+          </div>
         </div>
       </div>
 

@@ -6,6 +6,7 @@ import { Alert } from "bootstrap";
 export default function Product_detail() {
   const { id } = useParams();
   const [products, setProducts] = useState([]);
+  const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -14,7 +15,7 @@ export default function Product_detail() {
   }, [id]);
 
   function handleAdd() {
-    alert("Added successfully");
+    alert(`Added ${quantity} to cart successfully`);
   }
   return (
     <div className="product-container">
@@ -37,6 +38,12 @@ export default function Product_detail() {
           <button onClick={handleAdd} className="add">
             Add to Cart
           </button>
+          <input
+            type="number"
+            className="quantity"
+            placeholder={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
         </div>
       </div>
     </div>

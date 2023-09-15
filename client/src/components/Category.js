@@ -19,7 +19,7 @@ export default function Category() {
     } catch (error) {
       console.log(error);
     }
-  }, []);
+  });
 
   useEffect(() => {
     if (id === "men's clothing") {
@@ -39,7 +39,7 @@ export default function Category() {
         "https://img.freepik.com/free-photo/workplace-business-modern-male-accessories-laptop-black-background_155003-3944.jpg?size=626&ext=jpg"
       );
     }
-  }, []);
+  });
 
   return (
     <div>

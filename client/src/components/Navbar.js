@@ -16,8 +16,10 @@ export default function Navbar() {
   return (
     <div>
       <div className="nav-sale">
-        Special offer for limited time. Free delivery on every purchase over 1
-        bitcoin
+        <span className="moving-text">
+          Special offer for limited time. Free delivery on every purchase over 1
+          bitcoin
+        </span>
       </div>
       <nav className="navbar">
         <div className="navigations">
@@ -27,10 +29,18 @@ export default function Navbar() {
           <div className="dropdown">
             <button className="navigate-button">Categories</button>
             <div className="dropdown-content">
-              <a href={`/category/${`men's clothing`}`}>Men Clothing</a>
-              <a href={`/category/${`women's clothing`}`}>Women Clothing</a>
-              <a href={`/category/${`jewelery`}`}>Jwellery</a>
-              <a href={`/category/${`electronics`}`}>Electronics</a>
+              <a onClick={() => navigate(`/category/${`men's clothing`}`)}>
+                Men Clothing
+              </a>
+              <a onClick={() => navigate(`/category/${`women's clothing`}`)}>
+                Women Clothing
+              </a>
+              <a onClick={() => navigate(`/category/${`jewelery`}`)}>
+                Jwellery
+              </a>
+              <a onClick={() => navigate(`/category/${`electronics`}`)}>
+                Electronics
+              </a>
             </div>
           </div>
           <button className="navigate-button">Contact</button>
