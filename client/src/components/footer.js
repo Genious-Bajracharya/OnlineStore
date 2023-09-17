@@ -1,5 +1,12 @@
 import React from "react";
 import { useRef } from "react";
+import {
+  AiOutlineInstagram,
+  AiOutlineFacebook,
+  AiOutlineGithub,
+  AiOutlineLinkedin,
+  AiOutlineYoutube,
+} from "react-icons/ai";
 
 export default function Footer() {
   const con = useRef(null);
@@ -53,20 +60,24 @@ export default function Footer() {
             <input type="text" placeholder="Enter email address" />
             <input type="submit" name="" value="Send" />
             <div className="media-icons">
-              <a href="#">
-                <i className="fab fa-facebook-f" />
+              <a href="https://www.instagram.com/_genious.__/">
+                <i className="fab fa-facebook-f">
+                  <AiOutlineInstagram />
+                </i>
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=100009409115809">
+                <AiOutlineFacebook />
+              </a>
+              <a href="https://github.com/Genious-Bajracharya">
+                <i className="fab fa-twitter">
+                  <AiOutlineGithub />
+                </i>
+              </a>
+              <a href="https://www.linkedin.com/in/genious-bajracharya-573964211/">
+                <AiOutlineLinkedin />
               </a>
               <a href="#">
-                <i className="fab fa-instagram" />
-              </a>
-              <a href="#">
-                <i className="fab fa-twitter" />
-              </a>
-              <a href="#">
-                <i className="fab fa-youtube" />
-              </a>
-              <a href="#">
-                <i className="fab fa-linkedin-in" />
+                <AiOutlineYoutube />
               </a>
             </div>
           </form>

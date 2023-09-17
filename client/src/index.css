@@ -48,8 +48,11 @@ nav h1{
 
 }
 
-.navigate-button:hover, .search-logo:hover, .login:hover, .cart:hover{
+.navigate-button:hover{
   transform: translateY(-5px);
+}
+.search-logo:hover, .login-button:hover, .cart-button:hover{
+  transform: translateY(-20px);
 }
 
 .dropdown {
@@ -99,14 +102,14 @@ nav h1{
  cursor: pointer;
 }
 
-.login{
+.login-button{
   width:32px;
   height: 25px;
   margin: 1rem;
   transform: translateY(-15px);
   cursor: pointer;
 }
-.cart{
+.cart-button{
   width:32px;
   height: 25px;
   transform: translateY(-15px);
@@ -161,7 +164,128 @@ nav h1{
   
 }
 
-/* hero */
+/* cart //////////////////////////////*/
+.cart{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color:white;
+  z-index: 1;
+  right: 0;
+  width: 35%;
+  height: 88%;
+  padding: 1rem;
+  border-color: #000;
+  animation: wipe-in-left 1s ;
+}
+
+@keyframes wipe-in-left {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+[transition-style="in:wipe:left"] {
+  animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-left both;
+}
+
+.cart-item-container{
+  
+  overflow-y: scroll;
+
+}
+
+.cart-items{
+  display: flex;
+  
+  margin: 1rem;
+}
+
+.cart-image-container{
+  width: 40%;
+  height: 10rem;
+  
+}
+
+.cart-image{
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.cart-info{
+  width:40% ;
+  overflow: hidden;
+  text-wrap:nowrap;
+}
+
+.cart-func{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  justify-content:space-evenly;
+  align-items:end;
+  
+}
+
+
+.cart-quantity{
+  width: 3rem;
+  height: 2rem;
+  border: none;
+  border-bottom: #000;
+}
+
+.cart-remove{
+  width:32px;
+  height: 25px;
+  margin: 1rem;
+  /* transform: translateY(-15px); */
+  cursor: pointer;
+}
+  
+
+.cart-total{
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+body.cart-open {
+  overflow: hidden;
+}
+
+.cart-checkout{
+  background-color: #090000;
+  color: whitesmoke;
+  border-radius: 8px;
+  height: 3rem;
+}
+
+.cart-checkout:hover{
+  background: transparent;
+  color: #000;
+  transition:ease-in-out 1s;
+}
+
+
+@media (max-width: 600px) {
+  .cart{
+    width: 100%;
+    height: 60%;
+  }
+  body.cart-open {
+    overflow:scroll;
+  }
+}
+
+
+
+
+/* hero /////////////////////////*/
 .hero-section {
   position: relative;
   text-align: center;

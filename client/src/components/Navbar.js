@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import { CgProfile, CgSearch } from "react-icons/cg";
+import Cart from "./cart";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [search, showSearch] = useState(false);
+  const [cart, showCart] = useState(false);
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -19,6 +21,18 @@ export default function Navbar() {
     console.log(search);
     {
       search ? showSearch(false) : showSearch(true);
+    }
+  };
+
+  const handleCart = (e) => {
+    e.preventDefault();
+    {
+      cart ? showCart(false) : showCart(true);
+    }
+    {
+      cart
+        ? document.body.classList.remove("cart-open")
+        : document.body.classList.add("cart-open");
     }
   };
 
@@ -54,13 +68,14 @@ export default function Navbar() {
           </div>
           <button className="navigate-button">Contact</button>
         </div>
+
         <div onClick={() => navigate(`/`)} className="brand">
           <h1>Fake Store</h1>
         </div>
         <div className="icon-container">
           <CgSearch onClick={handleClick} className="search-logo" />
-          <CgProfile className="login" />
-          <AiOutlineShoppingCart className="cart" />
+          <CgProfile className="login-button" />
+          <AiOutlineShoppingCart onClick={handleCart} className="cart-button" />
         </div>
       </nav>
       {search ? (
@@ -75,6 +90,7 @@ export default function Navbar() {
       ) : (
         <></>
       )}
+      {cart ? <Cart /> : <></>}
     </>
   );
 }
