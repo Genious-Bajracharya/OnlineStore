@@ -95,17 +95,24 @@ export default function Home() {
         </div>
       </div>
       <div className="seller-box">
-        <div className="seller">
-          <a href="/add">
-            <img src={product1.image} className="seller-image" alt="" />
-            <h2 className="seller-text">Sale</h2>
-          </a>
+        <div
+          className="seller"
+          onClick={() => navigate(`/category/${`women's clothing`}`)}
+        >
+          <img src={product1.image} className="seller-image" alt="" />
+          <h2 className="seller-text">Sale</h2>
         </div>
-        <div className="seller">
+        <div
+          className="seller"
+          onClick={() => navigate(`/category/${`men's clothing`}`)}
+        >
           <img src={product2.image} className="seller-image" alt="" />
           <h2 className="seller-text">New Arrivals</h2>
         </div>
-        <div className="seller">
+        <div
+          className="seller"
+          onClick={() => navigate(`/category/${`jewelery`}`)}
+        >
           <img src={product3.image} className="seller-image" alt="" />
           <div className="seller-text">
             <h2 className="seller-text">Trending</h2>

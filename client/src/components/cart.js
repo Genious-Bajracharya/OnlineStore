@@ -1,10 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { BsTrash3 } from "react-icons/bs";
 
 export default function Cart() {
   const [products, setProducts] = useState([]);
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -16,15 +19,17 @@ export default function Cart() {
     }
   }, []);
 
-  function total() {}
-
   return (
     <>
       <div className="cart">
         <h2>My Cart</h2>
         <div className="cart-item-container">
           {products.slice(14, 18).map((item) => (
-            <div className="cart-items" key={item.id}>
+            <div
+              className="cart-items"
+              key={item.id}
+              onClick={() => navigate(`/product/${item.id}`)}
+            >
               <div className="cart-image-container">
                 <img className="cart-image" src={item.image} alt={item.title} />
               </div>
@@ -32,13 +37,15 @@ export default function Cart() {
                 <h4>{item.title}</h4>
                 <p>{item.price}</p>
               </div>
-
               <div className="cart-func">
                 <input
                   type="number"
                   className="cart-quantity"
                   placeholder="1"
+                  value={item.id.quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
                 />
+
                 <BsTrash3 className="cart-remove" />
               </div>
             </div>
@@ -46,7 +53,7 @@ export default function Cart() {
         </div>
         <div className="cart-total">
           <h4>SubTotal:</h4>
-          <p>1927836</p>
+          <p>{totalPrice}</p>
         </div>
         <button className="cart-checkout">Checkout</button>
       </div>

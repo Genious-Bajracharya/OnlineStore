@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import { CgProfile, CgSearch } from "react-icons/cg";
 import Cart from "./cart";
+import Login from "./login";
+import loginStatus from "./login";
 
-export default function Navbar() {
+export default function Navbar({ prop }) {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [search, showSearch] = useState(false);
@@ -22,6 +24,11 @@ export default function Navbar() {
     {
       search ? showSearch(false) : showSearch(true);
     }
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    Login.setLoginStatus(false);
   };
 
   const handleCart = (e) => {
@@ -74,7 +81,17 @@ export default function Navbar() {
         </div>
         <div className="icon-container">
           <CgSearch onClick={handleClick} className="search-logo" />
-          <CgProfile className="login-button" />
+
+          <div className="dropdown">
+            <CgProfile className="login-button" />
+            <div className="dropdown-content-profile">
+              {loginStatus ? (
+                <a onClick={() => navigate(`/login`)}>Login</a>
+              ) : (
+                <a onClick={handleLogout}>Logout</a>
+              )}
+            </div>
+          </div>
           <AiOutlineShoppingCart onClick={handleCart} className="cart-button" />
         </div>
       </nav>

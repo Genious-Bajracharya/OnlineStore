@@ -1,0 +1,64 @@
+.login-page{
+    margin-top: 3rem;
+    display: flex;
+   justify-content: center;
+    align-content: center;
+    
+}
+
+.login-left{
+    width: 60%;
+    background-color: aqua;
+}
+
+.login-right{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    
+    padding: 1rem;
+    align-items: center;
+    border-radius: 0.75rem;
+    box-shadow: 20px 10px 20px 20px rgb(234, 240, 241);
+   
+}
+
+.login-right h1{
+    margin-bottom: 20%;
+}
+.login-right input{
+    width: 60%;
+    margin: 1rem;
+    height: 2rem;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.login-right button{
+  
+    width: 8rem;
+    height: 2.5rem;
+    background-color: white;
+    border-radius: 12px;
+  }
+  
+  .login-right button:hover{
+    color: #ecd8d3;
+    background-color: black;
+    transition:1s ease-in;
+    
+  }
+
+
+  @media (max-width: 600px) {
+    .login-right{
+        width: 80%;
+    }
+    .login-right input{
+        width: 90%;
+    }
+    .login-right button{
+        height: 1.95rem;
+    }
+    }
+  
